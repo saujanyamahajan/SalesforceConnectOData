@@ -1,0 +1,47 @@
+@SalesforceConnectOData_HostAddress = http://localhost:5215
+@ApiKey = f47ac10b-58cc-4372-a567-0e02b2c3d479
+
+### OData $metadata (no auth required)
+GET {{SalesforceConnectOData_HostAddress}}/odata/$metadata
+Accept: application/xml
+
+### All Accounts
+GET {{SalesforceConnectOData_HostAddress}}/odata/Accounts
+Accept: application/json
+X-API-KEY: {{ApiKey}}
+
+### Single Account by ID
+GET {{SalesforceConnectOData_HostAddress}}/odata/Accounts(1)
+Accept: application/json
+X-API-KEY: {{ApiKey}}
+
+### $select - specific fields only
+GET {{SalesforceConnectOData_HostAddress}}/odata/Accounts?$select=Name,Email
+Accept: application/json
+X-API-KEY: {{ApiKey}}
+
+### $filter - filter by Name
+GET {{SalesforceConnectOData_HostAddress}}/odata/Accounts?$filter=Name eq 'Oscorp'
+Accept: application/json
+X-API-KEY: {{ApiKey}}
+
+### $orderby - sort by Name descending
+GET {{SalesforceConnectOData_HostAddress}}/odata/Accounts?$orderby=Name desc
+Accept: application/json
+X-API-KEY: {{ApiKey}}
+
+### $top and $skip - pagination
+GET {{SalesforceConnectOData_HostAddress}}/odata/Accounts?$top=3&$skip=2
+Accept: application/json
+X-API-KEY: {{ApiKey}}
+
+### $count - get total count
+GET {{SalesforceConnectOData_HostAddress}}/odata/Accounts?$count=true
+Accept: application/json
+X-API-KEY: {{ApiKey}}
+
+### No API key - should return 401
+GET {{SalesforceConnectOData_HostAddress}}/odata/Accounts
+Accept: application/json
+
+###

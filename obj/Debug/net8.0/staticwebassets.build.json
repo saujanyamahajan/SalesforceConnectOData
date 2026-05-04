@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "UHHQ/DDCQw9GTNJRV+hK9FmLzsZ49RnFhsAOjX+NziQ=",
+  "Source": "SalesforceConnectOData",
+  "BasePath": "_content/SalesforceConnectOData",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
