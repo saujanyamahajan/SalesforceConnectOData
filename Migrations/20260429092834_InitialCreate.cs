@@ -57,4 +57,3 @@ namespace SalesforceConnectOData.Migrations
         }
     }
 }
-
