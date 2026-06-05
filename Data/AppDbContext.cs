@@ -17,9 +17,6 @@ public class AppDbContext : DbContext
             entity.ToTable("Asset");
         });
 
-        modelBuilder.Entity<Account>(entity =>
-        {
-            entity.ToTable("Account");
-        });
+      
     }
 }
