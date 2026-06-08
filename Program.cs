@@ -26,7 +26,8 @@ builder.Services.AddControllers()
             .AddRouteComponents("odata", odataBuilder.GetEdmModel()));
 
 var app = builder.Build();
-
+app.UseMiddleware<HttpMethodOverrideMiddleware>(); // OPTIONS preflight + X-HTTP-Method-Override (must be before auth)
+app.UseMiddleware<BasicAuthMiddleware>();
 app.MapControllers();
 app.Run();
 
