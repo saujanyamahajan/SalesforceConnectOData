@@ -16,7 +16,9 @@ var odataBuilder = new ODataConventionModelBuilder();
 // Configure Assets - full CRUD as well
 var assetsSet = odataBuilder.EntitySet<Asset>("Assets");
 assetsSet.EntityType.HasKey(a => a.Id);
-
+// Configure Accounts - full CRUD for Salesforce updates
+var accountsSet = odataBuilder.EntitySet<Account>("Accounts");
+accountsSet.EntityType.HasKey(a => a.Id);
 builder.Services.AddControllers()
     .AddOData(opts =>
         opts.Select()
