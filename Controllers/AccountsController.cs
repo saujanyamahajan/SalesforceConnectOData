@@ -5,3 +5,5 @@ using Microsoft.AspNetCore.OData.Results;
 using Microsoft.AspNetCore.OData.Routing.Controllers;
 using SalesforceConnectOData.Data;
 using SalesforceConnectOData.Models;
+
+namespace SalesforceConnectOData.Controllers;
