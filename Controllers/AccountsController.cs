@@ -21,3 +21,12 @@ namespace SalesforceConnectOData.Controllers;
 ///   PUT    /odata/Accounts('key')     — Full replace / upsert
 ///   DELETE /odata/Accounts('key')     — Delete an account record
 /// </summary>
+/// 
+public class AccountsController : ODataController
+{
+       private readonly AppDbContext _db;
+
+    public AccountsController(AppDbContext db) => _db = db;
+
+    // ─── READ ────────────────────────────────────────────────────────────────────
+}
