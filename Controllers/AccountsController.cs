@@ -29,4 +29,11 @@ public class AccountsController : ODataController
     public AccountsController(AppDbContext db) => _db = db;
 
     // ─── READ ────────────────────────────────────────────────────────────────────
-}
+}  // GET /odata/Accounts
+    [EnableQuery]
+    public IQueryable<Account> Get() => _db.Accounts;
+
+    // GET /odata/Accounts('key')
+    [EnableQuery]
+    public SingleResult<Account> Get([FromRoute] string key) =>
+        SingleResult.Create(_db.Accounts.Where(a => a.Id == key));
