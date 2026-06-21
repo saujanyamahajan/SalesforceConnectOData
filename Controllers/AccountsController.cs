@@ -29,7 +29,7 @@ public class AccountsController : ODataController
     public AccountsController(AppDbContext db) => _db = db;
 
     // ─── READ ────────────────────────────────────────────────────────────────────
-}  // GET /odata/Accounts
+  // GET /odata/Accounts
     [EnableQuery]
     public IQueryable<Account> Get() => _db.Accounts;
 
@@ -37,3 +37,25 @@ public class AccountsController : ODataController
     [EnableQuery]
     public SingleResult<Account> Get([FromRoute] string key) =>
         SingleResult.Create(_db.Accounts.Where(a => a.Id == key));
+ // ─── CREATE ──────────────────────────────────────────────────────────────────
+
+    // POST /odata/Accounts
+    public async Task<IActionResult> Post([FromBody] Account account)
+    {
+        if (string.IsNullOrEmpty(account.Id))
+            account.Id = Guid.NewGuid().ToString();
+
+        var now = DateTime.UtcNow.ToString("o");
+        account.CreatedDate       ??= now;
+        account.LastModifiedDate  ??= now;
+        account.SystemModstamp    ??= now;
+        account.CreatedById       ??= "system";
+        account.LastModifiedById  ??= "system";
+
+        _db.Accounts.Add(account);
+        await _db.SaveChangesAsync();
+        return Created(account);
+    }
+
+    
+}
