@@ -57,5 +57,18 @@ public class AccountsController : ODataController
         return Created(account);
     }
 
-    
+    // ─── UPDATE (PARTIAL) ────────────────────────────────────────────────────────
+
+    // PATCH /odata/Accounts('key')
+    public async Task<IActionResult> Patch([FromRoute] string key, [FromBody] Delta<Account> delta)
+    {
+        var entity = await _db.Accounts.FindAsync(key);
+        if (entity == null)
+            return NotFound();
+
+        delta.Patch(entity);
+        await _db.SaveChangesAsync();
+        return Updated(entity);
+    }
+
 }
