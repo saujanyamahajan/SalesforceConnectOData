@@ -70,5 +70,52 @@ public class AccountsController : ODataController
         await _db.SaveChangesAsync();
         return Updated(entity);
     }
+ // ─── UPDATE (FULL REPLACE / UPSERT) ──────────────────────────────────────────
+
+    // PUT /odata/Accounts('key')
+    public async Task<IActionResult> Put([FromRoute] string key, [FromBody] Account account)
+    {
+        var entity = await _db.Accounts.FindAsync(key);
+        if (entity == null)
+        {
+            account.Id = key;
+            _db.Accounts.Add(account);
+            await _db.SaveChangesAsync();
+            return Created(account);
+        }
+
+        entity.IsDeleted       = account.IsDeleted;
+        entity.Name            = account.Name;
+        entity.Type            = account.Type;
+        entity.BillingStreet   = account.BillingStreet;
+        entity.BillingCity     = account.BillingCity;
+        entity.BillingState    = account.BillingState;
+        entity.BillingPostalCode = account.BillingPostalCode;
+        entity.BillingCountry  = account.BillingCountry;
+        entity.Street          = account.Street;
+        entity.ShippingStreet  = account.ShippingStreet;
+        entity.ShippingCity    = account.ShippingCity;
+        entity.ShippingState   = account.ShippingState;
+        entity.ShippingPostalCode = account.ShippingPostalCode;
+        entity.ShippingCountry = account.ShippingCountry;
+        entity.Phone           = account.Phone;
+        entity.Fax             = account.Fax;
+        entity.AccountNumber   = account.AccountNumber;
+        entity.Sic             = account.Sic;
+        entity.Industry        = account.Industry;
+        entity.AnnualRevenue   = account.AnnualRevenue;
+        entity.NumberOfEmployees = account.NumberOfEmployees;
+        entity.Ownership       = account.Ownership;
+        entity.TickerSymbol    = account.TickerSymbol;
+        entity.Description     = account.Description;
+        entity.Rating            = account.Rating;
+        entity.LastModifiedDate  = DateTime.UtcNow.ToString("o");
+        entity.LastModifiedById  = account.LastModifiedById ?? "system";
+        entity.SystemModstamp    = DateTime.UtcNow.ToString("o");
+
+        await _db.SaveChangesAsync();
+        return Updated(entity);
+    }
+
 
 }
