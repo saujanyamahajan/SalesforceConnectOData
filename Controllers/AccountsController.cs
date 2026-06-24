@@ -117,5 +117,17 @@ public class AccountsController : ODataController
         return Updated(entity);
     }
 
+// ─── DELETE ──────────────────────────────────────────────────────────────────
 
+    // DELETE /odata/Accounts('key')
+    public async Task<IActionResult> Delete([FromRoute] string key)
+    {
+        var entity = await _db.Accounts.FindAsync(key);
+        if (entity == null)
+            return NotFound();
+
+        _db.Accounts.Remove(entity);
+        await _db.SaveChangesAsync();
+        return NoContent();
+    }
 }
