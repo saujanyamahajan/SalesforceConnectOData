@@ -8,7 +8,21 @@ using SalesforceConnectOData.Models;
 
 namespace SalesforceConnectOData.Controllers;
 
-
+/// <summary>
+/// OData controller for Asset entity — provides full CRUD operations.
+/// Salesforce Connect calls these endpoints to read/write External Object records.
+/// 
+/// Flow: Salesforce UI → Salesforce Connect (External Data Source) → this OData API → SQL Server DB
+/// 
+/// Endpoints:
+///   GET    /odata/Assets            — List all assets (supports $filter, $select, $orderby, $top, $skip)
+///   GET    /odata/Assets('key')     — Get a single asset by Id
+///   POST   /odata/Assets            — Create a new asset (SF sends this on External Object record creation)
+///   PATCH  /odata/Assets('key')     — Partial update (SF sends this on field edits)
+///   PUT    /odata/Assets('key')     — Full replace / upsert
+///   DELETE /odata/Assets('key')     — Delete an asset record
+/// </summary>
+/// 
 public class AssetsController : ODataController
 {
     private readonly AppDbContext _db;
