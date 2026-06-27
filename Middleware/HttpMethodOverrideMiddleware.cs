@@ -45,6 +45,16 @@ public class HttpMethodOverrideMiddleware
                     ? HttpMethods.Patch
                     : overrideMethod.ToUpperInvariant();
             }
+            else
+            {
+                var path = context.Request.Path.Value ?? string.Empty;
+                // OData keyed URLs: /Entity('key') or URL-encoded /Entity(%27key%27)
+                // Salesforce Connect OData 4.0 sends POST to a keyed URL for updates.
+                if (path.Contains("('") || path.Contains("(%27", StringComparison.OrdinalIgnoreCase))
+                {
+                    context.Request.Method = HttpMethods.Patch;
+                }
+            }
         }
 
         await _next(context);
