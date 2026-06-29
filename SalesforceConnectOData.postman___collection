@@ -1,0 +1,636 @@
+{
+  "info": {
+    "_postman_id": "aae2a75e-6c69-4107-9984-111361130a92",
+    "name": "SalesforceConnectOData",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "18760809"
+  },
+  "item": [
+    {
+      "name": "Get all assets",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "sfconnect",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "G@sSouth2026!",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5215/odata/Assets",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5215",
+          "path": [
+            "odata",
+            "Assets"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Single asset",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "sfconnect",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "G@sSouth2026!",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Username",
+            "value": "sfconnect ",
+            "type": "text"
+          },
+          {
+            "key": "Pas",
+            "value": "G@sSouth2026! ",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5215/odata/Assets('02iRT000008Z6pzYAC')",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5215",
+          "path": [
+            "odata",
+            "Assets('02iRT000008Z6pzYAC')"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Insrt Asset",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "sfconnect",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "G@sSouth2026!",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"Name\": \"Test Asset\",\r\n  \"AccountId\": \"001ABC123\",\r\n  \"ProductDescription\": \"Test product\",\r\n  \"IsCompetitorProduct\": \"false\",\r\n  \"IsDeleted\": \"false\",\r\n  \"Status\": \"Active\",\r\n  \"Price\": 99.99\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5215/odata/Assets",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5215",
+          "path": [
+            "odata",
+            "Assets"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete asset",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "sfconnect",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "G@sSouth2026!",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5215/odata/Assets('02iRT000008Z4P7YAK')",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5215",
+          "path": [
+            "odata",
+            "Assets('02iRT000008Z4P7YAK')"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "partial update asset",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "sfconnect",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "G@sSouth2026!",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"Status\": \"Inactive\",\r\n  \"Price\": 150.99\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5215/odata/Assets('02iRT000008Z6pzYAC')",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5215",
+          "path": [
+            "odata",
+            "Assets('02iRT000008Z6pzYAC')"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update asset",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "sfconnect",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "G@sSouth2026!",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "\r\n{\r\n  \"Name\": \"Updated Asset\",\r\n  \"AccountId\": \"001ABC123\",\r\n  \"ProductDescription\": \"Updated description\",\r\n  \"Status\": \"Active\",\r\n  \"Price\": 200.00\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5215/odata/Assets('02iRT000008Z6pzYAC')",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5215",
+          "path": [
+            "odata",
+            "Assets('02iRT000008Z6pzYAC')"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get all accounts",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "sfconnect",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "G@sSouth2026!",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5215/odata/Accounts",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5215",
+          "path": [
+            "odata",
+            "Accounts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get single accounts",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "sfconnect",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "G@sSouth2026!",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5215/odata/Accounts('001dL00001Uiy5AQAR')",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5215",
+          "path": [
+            "odata",
+            "Accounts('001dL00001Uiy5AQAR')"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Insert Account",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "sfconnect",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "G@sSouth2026!",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"Name\": \"Test Account\",\r\n  \"Type\": \"Customer\",\r\n  \"Phone\": \"404-555-0100\",\r\n  \"BillingStreet\": \"123 Peachtree St\",\r\n  \"BillingCity\": \"Atlanta\",\r\n  \"BillingState\": \"GA\",\r\n  \"BillingPostalCode\": \"30301\",\r\n  \"BillingCountry\": \"US\",\r\n  \"Industry\": \"Energy\",\r\n  \"AnnualRevenue\": 5000000.00,\r\n  \"NumberOfEmployees\": 200,\r\n  \"Rating\": \"Hot\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5215/odata/Accounts",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5215",
+          "path": [
+            "odata",
+            "Accounts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Partial update account",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "sfconnect",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "G@sSouth2026!",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"Phone\": \"404-555-9999\",\r\n  \"Rating\": \"Warm\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5215/odata/Accounts('aa48bac1-5b14-43e9-a7ad-5534487e4b3a')",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5215",
+          "path": [
+            "odata",
+            "Accounts('aa48bac1-5b14-43e9-a7ad-5534487e4b3a')"
+          ],
+          "query": [
+            {
+              "key": "Content-Type",
+              "value": null,
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update account",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "sfconnect",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "G@sSouth2026!",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"Name\": \"Test Account\",\r\n  \"Type\": \"Customer\",\r\n  \"Phone\": \"404-555-0100\",\r\n  \"BillingStreet\": \"123 Peachtree St\",\r\n  \"BillingCity\": \"Atlanta\",\r\n  \"BillingState\": \"GA\",\r\n  \"BillingPostalCode\": \"30301\",\r\n  \"BillingCountry\": \"US\",\r\n  \"Industry\": \"Energy\",\r\n  \"AnnualRevenue\": 5000000.00,\r\n  \"NumberOfEmployees\": 200,\r\n  \"Rating\": \"Hot\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5215/odata/Accounts('aa48bac1-5b14-43e9-a7ad-5534487e4b3a')",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5215",
+          "path": [
+            "odata",
+            "Accounts('aa48bac1-5b14-43e9-a7ad-5534487e4b3a')"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete account",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "sfconnect",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "G@sSouth2026!",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5215/odata/Accounts('aa48bac1-5b14-43e9-a7ad-5534487e4b3a')",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5215",
+          "path": [
+            "odata",
+            "Accounts('aa48bac1-5b14-43e9-a7ad-5534487e4b3a')"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "https://cggasouthpocappsvc-ara8cuf5amaxemc3.centralus-01.azurewebsites.net/odata/Accounts('001dL00001Uiy5BQAR')",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "<USER>",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "<PASS>",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"Name\":\"Edge Communications Updated\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://cggasouthpocappsvc-ara8cuf5amaxemc3.centralus-01.azurewebsites.net/odata/Accounts('001dL00001Uiy5BQAR')",
+          "protocol": "https",
+          "host": [
+            "cggasouthpocappsvc-ara8cuf5amaxemc3",
+            "centralus-01",
+            "azurewebsites",
+            "net"
+          ],
+          "path": [
+            "odata",
+            "Accounts('001dL00001Uiy5BQAR')"
+          ]
+        },
+        "description": "Generated from cURL: curl -i -u \"<USER>:<PASS>\" \\\r\n  -X PATCH \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -H \"Accept: application/json\" \\\r\n  -d \"{\\\"Name\\\":\\\"Edge Communications Updated\\\"}\" \\\r\n  \"https://cggasouthpocappsvc-ara8cuf5amaxemc3.centralus-01.azurewebsites.net/odata/Accounts('001dL00001Uiy5BQAR')\""
+      },
+      "response": []
+    },
+    {
+      "name": "test",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ]
+}
