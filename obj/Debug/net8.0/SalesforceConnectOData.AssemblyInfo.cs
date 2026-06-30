@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SalesforceConnectOData")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fa48387415e5d22ccbbacc6fd563e079fcdc7049")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f50afa32417ec8ed0c123045b04ddcdffcce7d11")]
 [assembly: System.Reflection.AssemblyProductAttribute("SalesforceConnectOData")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SalesforceConnectOData")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
